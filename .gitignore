@@ -1,0 +1,5 @@
+outputs/
+slurm/
+model/
+data/
+*.sbatch
