@@ -15,9 +15,9 @@ from src.models.ddpm import LatentDiffusion
 ################################################################################################
 # set model parameters
 
-input_dim = 1024
-mlp_dims = 2048
-num_sample_mols = 1000
+input_dim = 1024 # do not change
+mlp_dims = 2048 # do not change
+num_sample_mols = 10000 # set, how many molecules to generate
 uncond_dm_ckpt = REPO_PATH + '/model/drugdiff.ckpt'
 output_file = REPO_PATH+'/outputs/unconditional_generation'
 
@@ -42,7 +42,6 @@ model.eval()
 model.apply_guidance(classifiers = [], # empty for unconditional generation
                     weights = [1],
                     properties = [],
-                    classifier_scales = [0],
+                    classifier_scales = [0], # 0 stands for no guidance
                     sample_num = num_sample_mols, # how many molecules to generate (as defined above)
-                    exp_name = output_file, 
-                    filter = None)
+                    exp_name = output_file)

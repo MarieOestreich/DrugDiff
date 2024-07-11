@@ -16,9 +16,9 @@ from src.models.components.vae import PropertyPredictor
 ################################################################################################
 # set model parameters
 
-input_dim = 1024
-mlp_dims = 2048
-num_sample_mols = 1000
+input_dim = 1024 # do not change
+mlp_dims = 2048 # do not change
+num_sample_mols = 10000 # how many molecules to generate
 uncond_dm_ckpt = REPO_PATH + '/model/drugdiff.ckpt'
 output_file = REPO_PATH+'/outputs/mol_weight_down_generation'
 
@@ -54,7 +54,6 @@ model.apply_guidance(classifiers = [classifier_mw],
                     # propA has weight 1 and propB has weight 2 than propB is guided for twice as strongly.
                     weights = [-1], 
                     properties = ['mol_weight'],
-                    classifier_scales = [0, 50, 100, 150],
+                    classifier_scales = [0, 50, 100, 150], # we include 0 (unguided) to have a reference for evaluation
                     sample_num = num_sample_mols, # how many molecules to generate (as defined above)
-                    exp_name = output_file, 
-                    filter = None)
+                    exp_name = output_file)
