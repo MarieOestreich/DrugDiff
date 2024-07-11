@@ -26,7 +26,7 @@ def one_hot_to_selfies(hot, dm):
 def one_hot_to_smiles(hot, dm):
     return sf.decoder(one_hot_to_selfies(hot, dm))
 
-# TAKEN FROM GUACAMOL:
+# TAKEN FROM GUACAMOL: https://github.com/BenevolentAI/guacamol
 
 class Evaluator():
     def __init__(self, max_len=72, symbol_to_idx=None, dataset='limo'):
@@ -133,6 +133,7 @@ class Evaluator():
                 indices.append(ind)
         mols = mols[indices]        
         return unique_list, mols
+########################
 
     def smiles_to_logp(self, smiles):
         logps = []
