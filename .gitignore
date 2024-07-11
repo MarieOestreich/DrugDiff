@@ -3,4 +3,3 @@ slurm/
 model/
 data/
 *.sbatch
-.gitignore
