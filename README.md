@@ -1,5 +1,7 @@
 # DrugDiff
 
+Was ist drugdiff, + Bioarchive link
+
 ## 1. Download Model Checkpoints
 
 Please download the DrugDiff checkpoint as well as the predictor checkpoints from here: ___
@@ -18,3 +20,6 @@ To generate molecules with guidance towards multiple molecular properties, use `
 
 ## 3. Evaluate Generated Molecules
 Evaluation examples can be found under ```/notebooks/```, with examples for unconditional generation (```evaluation_without_guidance.ipynb```), single-property guidance (```evaluation_with_single_property_guidance.ipynb```) and multi-property guidance (```evaluation_with_multi_property_guidance.ipynb```).
+
+## Data
+Zinc data from ..., license ...
