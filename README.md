@@ -1,6 +1,8 @@
 # DrugDiff
 
-Was ist drugdiff, + Bioarchive link
+_DrugDIFF_ is a latent diffusion model that uses predictor guidance to generate small molecules with desired molecular properties.
+Details about DrugDiff's architecture are illustrated in Figure 1 and further described in our pre-print.
+
 
 ## 1. Download Model Checkpoints
 
