@@ -26,4 +26,4 @@ To generate molecules with guidance towards multiple molecular properties, use `
 Evaluation examples can be found under ```/notebooks/```, with examples for unconditional generation (```evaluation_without_guidance.ipynb```), single-property guidance (```evaluation_with_single_property_guidance.ipynb```) and multi-property guidance (```evaluation_with_multi_property_guidance.ipynb```).
 
 ## Data
-Zinc data from ..., license ...
+The ZINC-250k dataset (https://www.kaggle.com/datasets/basu369victor/zinc250k) was used for training, which was published under the Database Contents License (DbCL). It is a subset of the ZINC database (Irwin, Tang, Young, Dandarchuluun, Wong, Khurelbaatar, Moroz, Mayfield, Sayle, J. Chem. Inf. Model 2020, https://pubs.acs.org/doi/10.1021/acs.jcim.0c00675).
