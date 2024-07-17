@@ -8,7 +8,7 @@ __Figure 1: DrugDiff Oveview__
 
 ## 1. Download Model Checkpoints
 
-Please download the DrugDiff checkpoint as well as the predictor checkpoints from here: ___
+Please download the DrugDiff checkpoint as well as the predictor checkpoints from here: [zenodo](https://zenodo.org/records/12755763)
 Save the checkpoints under ```/model/```. 
 
 ## 2. Generate Molecules
