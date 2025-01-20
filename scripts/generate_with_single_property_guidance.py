@@ -31,8 +31,7 @@ model = LatentDiffusion(input_dim = input_dim,
                         mlp_dims = mlp_dims,
                         num_sample_mols = num_sample_mols,
                         vae_ckpt = None,
-                        uncond_dm_ckpt = uncond_dm_ckpt,
-                        dataset = 'zinc250k')
+                        uncond_dm_ckpt = uncond_dm_ckpt)
 
 model.to(device)
 model.eval()

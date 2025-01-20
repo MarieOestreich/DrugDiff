@@ -19,7 +19,9 @@ input_dim = 1024 # do not change
 mlp_dims = 2048 # do not change
 num_sample_mols = 10000 # set, how many molecules to generate
 uncond_dm_ckpt = REPO_PATH + '/model/drugdiff.ckpt'
-output_file = REPO_PATH+'/outputs/unconditional_generation'
+# output_file = REPO_PATH+'/outputs/unconditional_generation'
+output_file = REPO_PATH+'/outputs/unconditional_comparison_limo_drugdiff/10k_drugdiff_2.csv'
+
 
 ################################################################################################
 # load DrugDiff
