@@ -21,7 +21,6 @@ from matplotlib import pyplot as plt
 from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 from torch.utils.data import DataLoader, TensorDataset, random_split
 from src.models.components.vae import PropertyPredictor
-# from src.models.ddpm import LatentDiffusion
 
 
 # Functions from LIMO to translate SMILES into one-hot encodings:

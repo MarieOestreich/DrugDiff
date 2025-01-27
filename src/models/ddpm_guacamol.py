@@ -14,7 +14,6 @@ import pytorch_lightning as pl
 from functools import partial
 import selfies as sf
 from rdkit import Chem
-# from rdkit.Chem import Draw
 from rdkit.Chem.MolStandardize import rdMolStandardize
 from src.utils.util import default
 from src.utils.diff_utils import make_beta_schedule, extract_into_tensor, noise_like
@@ -84,7 +83,7 @@ class LatentDiffusion(pl.LightningModule):
             self.max_len = pickle.load(input_file)
    
         # Initialize the VAE model
-        self.vae = VAE(max_len=109, vocab_len=96, latent_dim=1024, embedding_dim=64) 
+        self.vae = VAE(max_len=self.max_len, vocab_len=len(self.symbol_to_idx), latent_dim=input_dim, embedding_dim=64) 
         print(self.vae)
     
         # Load pre-trained unconditional diffusion model checkpoint (if provided)
@@ -700,28 +699,6 @@ class LatentDiffusion(pl.LightningModule):
         for i, index in enumerate(self.smiles_to_indices(smiles)):
             out[i][index] = 1
         return out.flatten()
-    
-    # def substruct_to_midpos(self, smiles):
-    #     out = torch.zeros((self.max_len, len(self.symbol_to_idx)))
-    #     smiles_idx = [self.symbol_to_idx[symbol] for symbol in sf.split_selfies(sf.encoder(smiles))] # indeces without nop
-    #     len_smiles = len(smiles_idx)
-    #     if len_smiles == self.max_len:
-    #         start_idx = 0
-    #     else:
-    #         start_idx = self.max_len//2 - len_smiles//2
-    #     for i, index in enumerate(smiles_idx):
-    #         out[i+start_idx][index] = 1
-    #     return out
-        
-    # def place_substruct(self, substruct, sampled):
-    #     shape = sampled.shape
-    #     sampled = torch.reshape(sampled, (sampled.shape[0],self.max_len, len(self.symbol_to_idx)))
-    #     substruct = self.substruct_to_midpos(substruct).repeat(sampled.shape[0], 1, 1)
-    #     for i in range(substruct.shape[1]):
-    #         if not torch.sum(substruct[:, i,:]):
-    #             substruct[:, i] = sampled[:, i]
-    #     substruct = substruct.reshape(shape[0], -1)
-    #     return substruct
         
 
     # used experimentally for substructure optimisation. 
@@ -825,31 +802,6 @@ class LatentDiffusion(pl.LightningModule):
             self.scale_losses_sampling = False
 
 
-
-        # if self.substruct_smile:
-        #     self.anchor_smile = anchor_smile
-        #     self.orig_z = self.smiles_to_z([self.anchor_smile], self.vae, self.device)
-
-        #     self.orig_x = torch.exp(self.vae.decode(self.orig_z))
-
-        #     self.substruct = Chem.MolFromSmiles(self.substruct_smile) # put smiles of the substructure you wish to keep constant here
-        #     selfies = list(sf.split_selfies(sf.encoder(self.anchor_smile)))
-        #     self.mask = torch.zeros_like(self.orig_x)
-        #     self.pos_mask = torch.zeros_like(self.orig_x)
-        #     for i in range(len(selfies)):
-        #         for j in range(len(self.idx_to_symbol)):
-        #             changed = selfies.copy()
-        #             changed[i] = self.idx_to_symbol[j]
-        #             m = Chem.MolFromSmiles(sf.decoder(''.join(changed)))
-        #             if not m.HasSubstructMatch(self.substruct):
-        #                 self.mask[0][i * len(self.idx_to_symbol) + j] = 1
-        #             else:
-        #                 self.pos_mask[0][i * len(self.idx_to_symbol) + j] = 1
-
-        #     self.orig_z_repeated = self.orig_z.repeat(self.sample_num,1)
-        #     self.orig_x_repeated = self.orig_x.repeat(self.sample_num,1)
-        #     self.mask_repeated = self.mask.repeat(self.sample_num,1)
-        # else:
         self.substruct = None
 
     #########################################
