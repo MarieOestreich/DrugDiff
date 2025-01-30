@@ -8,7 +8,7 @@ __Figure 1: DrugDiff Oveview__
 
 ## 1. Download Model Checkpoints
 
-Please download the DrugDiff checkpoint as well as the predictor checkpoints from here: [zenodo](https://zenodo.org/records/12755763)
+Please download the DrugDiff checkpoint as well as the predictor checkpoints from here: [zenodo](https://doi.org/10.5281/zenodo.12755762)
 
 Save the checkpoints under ```/model/```. 
 
