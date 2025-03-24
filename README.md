@@ -1,7 +1,7 @@
 # DrugDiff
 
 _DrugDiff_ is a latent diffusion model that uses predictor guidance to generate small molecules with desired molecular properties.
-Details about DrugDiff's architecture are illustrated below and further described in our [pre-print](https://doi.org/10.1101/2024.07.17.603873).
+Details about DrugDiff's architecture are illustrated below and further described in our [paper]([https://doi.org/10.1101/2024.07.17.603873](https://doi.org/10.1186/s13321-025-00965-x)).
 
 ![Figure 1](https://github.com/MarieOestreich/DrugDiff/blob/main/DrugDiff-Overview.jpg)
 __Figure 1: DrugDiff Oveview__
